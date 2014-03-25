@@ -8,7 +8,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 import ui_ssc_widget
 
-MPC_FILE = 'mpc4.csv'
+MPC_FILE = 'mpc_v5.csv'
 
 # use multiple inheritance to access both sets of attributes directly.
 class SSCWidget(QTabWidget, ui_ssc_widget.Ui_TabWidget):
@@ -35,6 +35,8 @@ class SSCWidget(QTabWidget, ui_ssc_widget.Ui_TabWidget):
                      self.updateUI)
         self.connect(self.sliderOnlineComm, SIGNAL("valueChanged(int)"),
                      self.updateUI)
+        self.connect(self.sliderPreprocComm, SIGNAL("valueChanged(int)"),
+                     self.updateUI)
 
         self.connect(self.cbMixedAdversary, SIGNAL("stateChanged(int)"),
                      self.updateUI)
@@ -46,18 +48,24 @@ class SSCWidget(QTabWidget, ui_ssc_widget.Ui_TabWidget):
                      self.updateUI)
         self.connect(self.cbBroadcast, SIGNAL("stateChanged(int)"),
                      self.updateUI)
+        self.connect(self.cbPrivateChannels, SIGNAL("stateChanged(int)"),
+                     self.updateUI)
         self.connect(self.cbConstantRounds, SIGNAL("stateChanged(int)"),
                      self.updateUI)
-        self.connect(self.cbPreprocessing, SIGNAL("stateChanged(int)"),
+        self.connect(self.cbImplemented, SIGNAL("stateChanged(int)"),
                      self.updateUI)
+        #self.connect(self.cbPreprocessing, SIGNAL("stateChanged(int)"),
+        #             self.updateUI)
 
 
         self.connect(self.radioExact, SIGNAL("toggled(bool)"), self.updateUI)
         self.connect(self.radioAtLeast, SIGNAL("toggled(bool)"), self.updateUI)
 
+        # wire up the pushbuttons and other clicking events.
         self.listView.doubleClicked.connect(self.paperClicked)
         self.listView.clicked.connect(self.enableSetSliders)
         self.btnSetSliders.clicked.connect(self.setSliders)
+        self.btnResetSliders.clicked.connect(self.resetSliders)
         
         # LATER: MAC-specific stuff?
         self.updateUI()
@@ -79,7 +87,9 @@ class SSCWidget(QTabWidget, ui_ssc_widget.Ui_TabWidget):
         popup.show()
         popup.raise_()
 
+    ##########################################################
     # called on every gadget change, to update the paper list.
+    ##########################################################
     def updateUI(self):
         results = self.matchProtocols()
         # wonder if this will delete it.
@@ -114,8 +124,12 @@ class SSCWidget(QTabWidget, ui_ssc_widget.Ui_TabWidget):
         else: self.cbSynchronous.setChecked(True)
         if int(row['Setup Assump']) == 5: self.cbTrustedSetup.setChecked(False)
         else: self.cbTrustedSetup.setChecked(True)
-        if int(row['Comm Preproc']) == 5: self.cbPreprocessing.setChecked(False)
-        else: self.cbPreprocessing.setChecked(True)
+        #if int(row['Comm Preproc']) == 5: self.cbPreprocessing.setChecked(False)
+        #else: self.cbPreprocessing.setChecked(True)
+        if int(row['Private channels']) == 5: self.cbPrivateChannels.setChecked(False)
+        else: self.cbPrivateChannels.setChecked(True)
+        if row['Impl'] == 'y': self.cbImplemented.setChecked(True)
+        else: self.cbImplemented.setChecked(False)
 
         if int(row['Rounds']) == 5: self.cbConstantRounds.setChecked(True)
         else: self.cbConstantRounds.setChecked(False)
@@ -130,9 +144,12 @@ class SSCWidget(QTabWidget, ui_ssc_widget.Ui_TabWidget):
         self.sliderSecType.setValue(int(row['Security level']))
         self.sliderFairness.setValue(int(row['Fairness']))
         self.sliderOnlineComm.setValue(int(row['Complexity Level']))
+        self.sliderPreprocComm.setValue(int(row['Comm Preproc']))
         return
 
+    ##########################################################
     # Return a list of protocols matching the sliders.
+    ##########################################################
     def matchProtocols(self):
         # check impossibility independently (to catch myself)
         impossible = False
@@ -176,6 +193,9 @@ class SSCWidget(QTabWidget, ui_ssc_widget.Ui_TabWidget):
                                        self.sliderFairness.value())
             match &= self.scaleCompare(int(row['Complexity Level']),
                                        self.sliderOnlineComm.value())
+            match &= self.scaleCompare(int(row['Comm Preproc']),
+                                       self.sliderPreprocComm.value())
+
 
             # security binary requirements
             match &= (not self.cbComposable.isChecked()) or \
@@ -193,8 +213,9 @@ class SSCWidget(QTabWidget, ui_ssc_widget.Ui_TabWidget):
                       int(row['Asynchro']) == 5)
             match &= (self.cbTrustedSetup.isChecked() or 
                       int(row['Setup Assump']) == 5)
-            match &= (self.cbPreprocessing.isChecked() or
-                      int(row['Comm Preproc']) == 5)
+            match &= (self.cbPrivateChannels.isChecked() or 
+                      int(row['Private channels']) == 5)
+            match &= (not self.cbImplemented.isChecked()) or row['Impl'] == 'y'
             
             if match: results.append(row['Protocol'])
 
@@ -208,6 +229,28 @@ class SSCWidget(QTabWidget, ui_ssc_widget.Ui_TabWidget):
             self.lblProtocolsFound.setText(QString("Known Impossible"))
 
         return results
+
+    ## Put all sliders and checkboxes at the "lowest" positions.
+    def resetSliders(self):
+        self.cbBroadcast.setChecked(True)
+        self.cbPrivateChannels.setChecked(True)
+        self.cbTrustedSetup.setChecked(True)
+        self.cbSynchronous.setChecked(True)
+        self.cbImplemented.setChecked(False)
+
+        self.cbComposable.setChecked(False)
+        self.cbMixedAdversary.setChecked(False)
+        self.cbConstantRounds.setChecked(False)
+
+        self.sliderAdaptiveness.setValue(1)
+        self.sliderMaliciousness.setValue(1)
+        self.sliderCorruptedParties.setValue(1)
+        self.sliderSecType.setValue(1)
+        self.sliderFairness.setValue(1)
+        self.sliderOnlineComm.setValue(1)
+        self.sliderPreprocComm.setValue(1)
+        self.updateUI()
+        return
 
 # end class
 

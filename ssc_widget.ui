@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>910</width>
-    <height>433</height>
+    <width>885</width>
+    <height>476</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,7 +27,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
+      <y>230</y>
       <width>221</width>
       <height>211</height>
      </rect>
@@ -54,7 +54,7 @@
       <number>4</number>
      </property>
      <property name="value">
-      <number>5</number>
+      <number>1</number>
      </property>
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -70,7 +70,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>100</y>
+       <y>70</y>
        <width>61</width>
        <height>16</height>
       </rect>
@@ -92,7 +92,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>HBC</string>
+      <string>Passive</string>
      </property>
      <property name="buddy">
       <cstring>sliderMaliciousness</cstring>
@@ -209,29 +209,13 @@
       <cstring>sliderAdaptiveness</cstring>
      </property>
     </widget>
-    <widget class="QLabel" name="label_5">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>60</y>
-       <width>61</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Rational</string>
-     </property>
-     <property name="buddy">
-      <cstring>sliderMaliciousness</cstring>
-     </property>
-    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>20</y>
-      <width>341</width>
+      <y>230</y>
+      <width>331</width>
       <height>211</height>
      </rect>
     </property>
@@ -332,7 +316,7 @@ Adversary</string>
      <property name="geometry">
       <rect>
        <x>140</x>
-       <y>169</y>
+       <y>130</y>
        <width>81</width>
        <height>21</height>
       </rect>
@@ -377,7 +361,7 @@ Adversary</string>
      <property name="geometry">
       <rect>
        <x>140</x>
-       <y>70</y>
+       <y>60</y>
        <width>71</width>
        <height>20</height>
       </rect>
@@ -404,8 +388,11 @@ Adversary</string>
      <property name="pageStep">
       <number>2</number>
      </property>
+     <property name="value">
+      <number>1</number>
+     </property>
      <property name="sliderPosition">
-      <number>2</number>
+      <number>1</number>
      </property>
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -415,19 +402,6 @@ Adversary</string>
      </property>
      <property name="tickInterval">
       <number>1</number>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_22">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>101</y>
-       <width>71</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Hybrid</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_23">
@@ -447,7 +421,7 @@ Adversary</string>
      <property name="geometry">
       <rect>
        <x>140</x>
-       <y>130</y>
+       <y>90</y>
        <width>81</width>
        <height>31</height>
       </rect>
@@ -459,12 +433,25 @@ Adversary</string>
       <bool>true</bool>
      </property>
     </widget>
+    <widget class="QLabel" name="label_20">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>170</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>No Agreement</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>20</y>
+      <y>230</y>
       <width>91</width>
       <height>211</height>
      </rect>
@@ -504,7 +491,7 @@ Adversary</string>
       <number>3</number>
      </property>
      <property name="value">
-      <number>3</number>
+      <number>1</number>
      </property>
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -555,30 +542,14 @@ Adversary</string>
       <string>&lt; n/4</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_21">
-     <property name="geometry">
-      <rect>
-       <x>11</x>
-       <y>60</y>
-       <width>61</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Const. Frac.</string>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_4">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>280</y>
-      <width>331</width>
-      <height>111</height>
+      <y>10</y>
+      <width>201</width>
+      <height>141</height>
      </rect>
     </property>
     <property name="title">
@@ -587,10 +558,10 @@ Adversary</string>
     <widget class="QCheckBox" name="cbSynchronous">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>30</y>
+       <x>10</x>
+       <y>110</y>
        <width>131</width>
-       <height>31</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="text">
@@ -603,8 +574,8 @@ Adversary</string>
     <widget class="QCheckBox" name="cbTrustedSetup">
      <property name="geometry">
       <rect>
-       <x>150</x>
-       <y>70</y>
+       <x>10</x>
+       <y>80</y>
        <width>141</width>
        <height>21</height>
       </rect>
@@ -612,42 +583,48 @@ Adversary</string>
      <property name="text">
       <string>Trusted Setup</string>
      </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QCheckBox" name="cbBroadcast">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>70</y>
-       <width>121</width>
+       <x>10</x>
+       <y>50</y>
+       <width>141</width>
        <height>21</height>
       </rect>
      </property>
      <property name="text">
-      <string>Broadcast</string>
+      <string>Broadcast Channel</string>
      </property>
      <property name="checked">
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QCheckBox" name="cbPreprocessing">
+    <widget class="QCheckBox" name="cbPrivateChannels">
      <property name="geometry">
       <rect>
-       <x>150</x>
-       <y>30</y>
-       <width>161</width>
-       <height>31</height>
+       <x>10</x>
+       <y>20</y>
+       <width>141</width>
+       <height>21</height>
       </rect>
      </property>
      <property name="text">
-      <string>Preprocessing stage</string>
+      <string>Private Channels</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>
    <widget class="QLabel" name="lblProtocolsFound">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>250</y>
+      <x>420</x>
+      <y>10</y>
       <width>161</width>
       <height>21</height>
      </rect>
@@ -733,8 +710,8 @@ Adversary</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>420</y>
+      <x>120</x>
+      <y>490</y>
       <width>331</width>
       <height>41</height>
      </rect>
@@ -775,10 +752,10 @@ Adversary</string>
    <widget class="QListView" name="listView">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>270</y>
-      <width>551</width>
-      <height>131</height>
+      <x>410</x>
+      <y>40</y>
+      <width>361</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -791,9 +768,9 @@ Adversary</string>
    <widget class="QGroupBox" name="groupBox_7">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>20</y>
-      <width>211</width>
+      <x>680</x>
+      <y>230</y>
+      <width>191</width>
       <height>211</height>
      </rect>
     </property>
@@ -828,24 +805,11 @@ Adversary</string>
       <number>1</number>
      </property>
     </widget>
-    <widget class="QLabel" name="label_19">
-     <property name="geometry">
-      <rect>
-       <x>12</x>
-       <y>30</y>
-       <width>61</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Sublinear</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_25">
      <property name="geometry">
       <rect>
-       <x>12</x>
-       <y>60</y>
+       <x>10</x>
+       <y>30</y>
        <width>61</width>
        <height>21</height>
       </rect>
@@ -860,8 +824,8 @@ Adversary</string>
     <widget class="QLabel" name="label_26">
      <property name="geometry">
       <rect>
-       <x>12</x>
-       <y>90</y>
+       <x>10</x>
+       <y>60</y>
        <width>61</width>
        <height>41</height>
       </rect>
@@ -876,8 +840,8 @@ Adversary</string>
     <widget class="QLabel" name="label_27">
      <property name="geometry">
       <rect>
-       <x>12</x>
-       <y>135</y>
+       <x>10</x>
+       <y>100</y>
        <width>71</width>
        <height>20</height>
       </rect>
@@ -890,7 +854,7 @@ Adversary</string>
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>160</y>
+       <y>130</y>
        <width>61</width>
        <height>31</height>
       </rect>
@@ -902,10 +866,10 @@ Adversary</string>
     <widget class="QLabel" name="label_29">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>20</x>
        <y>190</y>
-       <width>101</width>
-       <height>16</height>
+       <width>151</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="font">
@@ -915,7 +879,7 @@ Adversary</string>
       </font>
      </property>
      <property name="text">
-      <string>Online, in n</string>
+      <string>Complexity per gate, in n</string>
      </property>
     </widget>
     <widget class="QCheckBox" name="cbConstantRounds">
@@ -932,18 +896,191 @@ Adversary</string>
 Rounds</string>
      </property>
     </widget>
+    <widget class="QLabel" name="label_30">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>160</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&gt;= Cubic</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="btnSetSliders">
     <property name="geometry">
      <rect>
-      <x>739</x>
-      <y>240</y>
-      <width>161</width>
+      <x>410</x>
+      <y>170</y>
+      <width>151</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
      <string>Set sliders from protocol</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_8">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>0</y>
+      <width>161</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Preprocessing Comm.</string>
+    </property>
+    <widget class="QSlider" name="sliderPreprocComm">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>30</y>
+       <width>23</width>
+       <height>160</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>5</number>
+     </property>
+     <property name="pageStep">
+      <number>4</number>
+     </property>
+     <property name="value">
+      <number>1</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="tickPosition">
+      <enum>QSlider::TicksAbove</enum>
+     </property>
+     <property name="tickInterval">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_31">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>None</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_32">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>61</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Sublinear</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_33">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>100</y>
+       <width>71</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Linear</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_35">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>190</y>
+       <width>151</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Complexity per gate, in n</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_36">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>150</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&amp;gt;= &lt;br/&gt;Quadratic&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBoxImpl">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>160</y>
+      <width>201</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QCheckBox" name="cbImplemented">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>9</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Implemented</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="btnResetSliders">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>170</y>
+      <width>111</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Reset Sliders</string>
     </property>
    </widget>
   </widget>
