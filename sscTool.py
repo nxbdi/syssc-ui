@@ -153,11 +153,27 @@ class SSCWidget(QTabWidget, ui_ssc_widget.Ui_TabWidget):
     def matchProtocols(self):
         # check impossibility independently (to catch myself)
         impossible = False
-        # 1. No fairness if dishonest majority and malicious.
+        impossibleString = ""
+        # Theorem 1. Any unconditional security requires broadcast or private channel.
+        if (self.sliderSecType.value() > 3 and
+            not self.cbPrivateChannels.isChecked() and
+            not self.cbBroadcast.isChecked()) :
+            impossible = True
+            impossibleString += "1, "
+        # Theorem 2. No fairness if dishonest majority and malicious.
         if (self.sliderFairness.value() > 3 and
             self.sliderCorruptedParties.value() > 3 and
-            self.sliderMaliciousness.value() > 2):
+            self.sliderMaliciousness.value() == 5): 
             impossible = True
+            impossibleString += "2, "
+        # Theorem 3. If malicious and unconditional security, no guaranteed
+        #  output if more than n/3 corrupted.
+        if (self.sliderMaliciousness.value() == 5 and
+            self.sliderSecType.value() > 3 and
+            self.sliderFairness.value() == 5 and
+            self.sliderCorruptedParties.value() > 2) :
+            impossible = True
+            impossibleString += "3, "
         # 2. No more than n/3 corrupted parties if uncond and no bcast/error.
         if (self.sliderCorruptedParties.value() > 2 and
             self.sliderSecType.value() > 3 and
@@ -226,7 +242,8 @@ class SSCWidget(QTabWidget, ui_ssc_widget.Ui_TabWidget):
             self.lblProtocolsFound.setText(QString("Protocols found:"))
         if (impossible):
             self.lblProtocolsFound.setStyleSheet("QLabel { color : red; }")
-            self.lblProtocolsFound.setText(QString("Known Impossible"))
+            self.lblProtocolsFound.setText(QString("Known Impossible: " + 
+                                                   impossibleString))
 
         return results
 

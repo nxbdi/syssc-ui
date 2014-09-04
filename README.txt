@@ -5,7 +5,7 @@ This UI was written in Python 2.7 using the PyQT library. The UI code must first
 
 $ pyuic4 ssc_widget.ui > ui_ssc_widget.py
 
-Then the program can be started by running the 'sscTool.py' script directly. The protocol database 'mpc_v5.csv' must be in the same directory. For support building on Windows or Mac, please contact the project team.
+Then the program can be started by running the 'sscTool.py' script directly. The protocol database 'mpc_v5.csv' must be in the same directory.
 
-March 25, 2014
+September 4, 2014
 
