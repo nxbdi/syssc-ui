@@ -174,8 +174,9 @@ class SSCWidget(QTabWidget, ui_ssc_widget.Ui_TabWidget):
             self.sliderCorruptedParties.value() > 2) :
             impossible = True
             impossibleString += "3, "
-        # 2. No more than n/3 corrupted parties if uncond and no bcast/error.
-        if (self.sliderCorruptedParties.value() > 2 and
+        # 2. No more than n/3 maliciously corrupted parties if uncond and no bcast/error.
+        if (self.sliderMaliciousness.value() == 5 and 
+            self.sliderCorruptedParties.value() > 2 and
             self.sliderSecType.value() > 3 and
             not self.cbBroadcast.isChecked()):
             impossible = True
@@ -187,7 +188,7 @@ class SSCWidget(QTabWidget, ui_ssc_widget.Ui_TabWidget):
         #    not self.cbTrustedSetup.isChecked()):
         #    impossible = True
         # 4. malicious dishonest majority with fairness
-        if (self.sliderMaliciousness.value() > 3 and 
+        if (self.sliderMaliciousness.value() == 5 and 
             self.sliderCorruptedParties.value() > 3 and
             self.sliderFairness.value() > 2):
             impossible = True
